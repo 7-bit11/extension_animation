@@ -1,4 +1,4 @@
-import 'package:extension_animation_example/animations/animated_opacity.dart';
+import 'package:extension_animation/animations/animated_opacity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
