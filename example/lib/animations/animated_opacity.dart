@@ -4,21 +4,21 @@ import 'package:extension_animation_example/type/animated_duration.dart';
 import 'package:flutter/material.dart';
 
 /// 淡入动画效果
-class AnimatedOpacity extends StatefulWidget {
+class AnimatedOpacityBit extends StatefulWidget {
   final Widget child;
   final Duration? duration;
 
-  const AnimatedOpacity({
+  const AnimatedOpacityBit({
     super.key,
     required this.child,
     this.duration,
   }) : super();
 
   @override
-  _AnimatedOpacityState createState() => _AnimatedOpacityState();
+  _AnimatedOpacityBitState createState() => _AnimatedOpacityBitState();
 }
 
-class _AnimatedOpacityState extends State<AnimatedOpacity>
+class _AnimatedOpacityBitState extends State<AnimatedOpacityBit>
     with SingleTickerProviderStateMixin {
   /// 动画控制器
   late AnimationController _controller;
