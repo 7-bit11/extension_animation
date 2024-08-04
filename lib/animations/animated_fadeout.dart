@@ -18,8 +18,11 @@ class AnimatedFadeOutBit extends StatefulWidget {
 
   /// 延迟时间
   /// final Duration? delay;
-
+  /// 控制器创建成功回调
   Function(AnimationController controller)? onCreate;
+
+  /// 动画曲线
+  final Curve? curve;
 
   /// 构造方法
   AnimatedFadeOutBit(
@@ -28,7 +31,8 @@ class AnimatedFadeOutBit extends StatefulWidget {
       this.duration,
       this.begin = 1,
       this.end = 0,
-      this.onCreate})
+      this.onCreate,
+      this.curve})
       : super();
 
   @override
@@ -50,8 +54,11 @@ class _AnimatedFadeOutBitState extends State<AnimatedFadeOutBit>
       duration: widget.duration ?? AnimatedDuration.duration,
       vsync: this,
     );
-    _animation = Tween<double>(begin: widget.begin, end: widget.end)
-        .animate(_controller);
+    _animation = CurvedAnimation(
+      parent: Tween<double>(begin: widget.begin, end: widget.end)
+          .animate(_controller),
+      curve: widget.curve ?? Curves.easeInOut,
+    );
 
     /// 控制器创建成功回调
     widget.onCreate?.call(_controller);
