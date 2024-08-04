@@ -42,11 +42,12 @@ class _MyAppState extends State<MyApp> {
                       color: Colors.red,
                     )
                       .fadeIn(
-
-                          ///动画时间
-                          duration: const Duration(seconds: 1),
-                          //延迟时间
-                          delay: const Duration(seconds: 1))
+                      ///动画时间
+                      duration: const Duration(seconds: 1),
+                      //延迟时间
+                      delay: const Duration(seconds: 1),
+                      //
+                    )
                       .fadeOut(onCreate: (controller) {
                       this.controller = controller;
                       debugPrint("初始化成功！！！！");

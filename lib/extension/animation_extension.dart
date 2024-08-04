@@ -7,11 +7,13 @@ extension WidgetAnimation on Widget {
   Widget fadeIn(
       {Duration? duration,
       Duration? delay,
+      Curve? curve,
       Function(AnimationController controller)? onCreate}) {
     return AnimatedFadeInBit(
       duration: duration,
       delay: delay,
       onCreate: onCreate,
+      curve: curve,
       child: this,
     );
   }
@@ -19,10 +21,12 @@ extension WidgetAnimation on Widget {
   /// 淡出动画 [AnimatedFadeInBit]
   Widget fadeOut(
       {Duration? duration,
+      Curve? curve,
       Function(AnimationController controller)? onCreate}) {
     return AnimatedFadeOutBit(
       duration: duration,
       onCreate: onCreate,
+      curve: curve,
       child: this,
     );
   }
