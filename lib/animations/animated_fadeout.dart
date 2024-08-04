@@ -4,7 +4,7 @@ import 'package:extension_animation/type/animated_duration.dart';
 import 'package:flutter/material.dart';
 
 /// 淡入动画效果
-class AnimatedFadeInBit extends StatefulWidget {
+class AnimatedFadeOutBit extends StatefulWidget {
   final Widget child;
 
   /// 动画时长
@@ -22,21 +22,21 @@ class AnimatedFadeInBit extends StatefulWidget {
   Function(AnimationController controller)? onCreate;
 
   /// 构造方法
-  AnimatedFadeInBit(
+  AnimatedFadeOutBit(
       {super.key,
       required this.child,
       this.duration,
-      this.begin = 0,
-      this.end = 1,
+      this.begin = 1,
+      this.end = 0,
       this.delay,
       this.onCreate})
       : super();
 
   @override
-  _AnimatedFadeInBitState createState() => _AnimatedFadeInBitState();
+  _AnimatedFadeOutBitState createState() => _AnimatedFadeOutBitState();
 }
 
-class _AnimatedFadeInBitState extends State<AnimatedFadeInBit>
+class _AnimatedFadeOutBitState extends State<AnimatedFadeOutBit>
     with SingleTickerProviderStateMixin {
   /// 动画控制器
   late AnimationController _controller;
@@ -56,27 +56,10 @@ class _AnimatedFadeInBitState extends State<AnimatedFadeInBit>
 
     /// 控制器创建成功回调
     widget.onCreate?.call(_controller);
-
-    if (widget.delay != null) {
-      Future.delayed(widget.delay!, () {
-        if (mounted) _controller.forward();
-      });
-    } else {
-      _controller.forward();
-    }
-
-    // _controller.addStatusListener((status) {
-    //   if (status == AnimationStatus.completed) {
-    //     _controller.reverse();
-    //   } else if (status == AnimationStatus.dismissed) {
-    //     _controller.forward();
-    //   }
-    // });
   }
 
   @override
   void deactivate() {
-    //_controller.reverse().then((value) => debugPrint("动画 dispose"));
     super.deactivate();
   }
 
@@ -84,16 +67,6 @@ class _AnimatedFadeInBitState extends State<AnimatedFadeInBit>
   void dispose() {
     _controller.dispose();
     super.dispose();
-    // if (!_isDisposing && _controller.status != AnimationStatus.dismissed) {
-    //   _isDisposing = true;
-    //   _controller.reverse().then((_) {
-    //     _controller.dispose();
-    //     super.dispose();
-    //   });
-    // } else {
-    //   _controller.dispose();
-    //   super.dispose();
-    // }
   }
 
   @override
