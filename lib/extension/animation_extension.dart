@@ -1,4 +1,4 @@
-import 'package:extension_animation/animations/animated_opacity.dart';
+import 'package:extension_animation/animations/animated_fadein.dart';
 import 'package:flutter/material.dart';
 
 extension WidgetAnimation on Widget {
@@ -16,7 +16,10 @@ extension WidgetAnimation on Widget {
   }
 
   /// 淡出动画 [AnimatedFadeInBit]
-  Widget fadeOut({Duration? duration}) {
+  Widget fadeOut(
+      {Duration? duration,
+      Duration? delay,
+      Function(AnimationController controller)? onCreate}) {
     return AnimatedFadeInBit(
       duration: duration,
       begin: 1,
