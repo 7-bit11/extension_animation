@@ -36,19 +36,14 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _isVisible
-                  ? FadeOut(
-                      controller: (p0) async {
-                        controller = p0;
-                        debugPrint(p0.status.toString());
-                      },
-                      animate: _hide,
-                      duration: Duration(seconds: 1),
-                      child: Container(
-                        width: 150,
-                        height: 150,
-                        color: Colors.red,
-                      ), //.fadeIn(),
-                    )
+                  ? Container(
+                      width: 150,
+                      height: 150,
+                      color: Colors.red,
+                    ).fadeIn(onCreate: (controller) {
+                      this.controller = controller;
+                      debugPrint("初始化成功！！！！");
+                    })
                   : FadeIn(
                       child: Text(
                         'Hello, World!',
@@ -57,14 +52,16 @@ class _MyAppState extends State<MyApp> {
                     ),
               ElevatedButton(
                 onPressed: () async {
-                  controller?.forward();
+                  await controller?.reverse().then((_) {
+                    debugPrint("动画执行成功！！");
+                  });
+                  controller = null;
+
+                  //await Future.delayed(Duration(seconds: 2));
                   // setState(() {
                   //   _hide = false;
                   //   _hide = true;
                   // });
-
-                  await Future.delayed(const Duration(seconds: 1));
-                  controller = null;
                   setState(() {
                     _isVisible = !_isVisible;
                   });

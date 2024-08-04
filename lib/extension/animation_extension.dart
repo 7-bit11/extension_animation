@@ -2,18 +2,22 @@ import 'package:extension_animation/animations/animated_opacity.dart';
 import 'package:flutter/material.dart';
 
 extension WidgetAnimation on Widget {
-  /// 淡入动画 [AnimatedOpacityBit]
-  Widget fadeIn({Duration? duration, Duration? delay}) {
-    return AnimatedOpacityBit(
+  /// 淡入动画 [AnimatedFadeInBit]
+  Widget fadeIn(
+      {Duration? duration,
+      Duration? delay,
+      Function(AnimationController controller)? onCreate}) {
+    return AnimatedFadeInBit(
       duration: duration,
       delay: delay,
+      onCreate: onCreate,
       child: this,
     );
   }
 
-  /// 淡出动画 [AnimatedOpacityBit]
+  /// 淡出动画 [AnimatedFadeInBit]
   Widget fadeOut({Duration? duration}) {
-    return AnimatedOpacityBit(
+    return AnimatedFadeInBit(
       duration: duration,
       begin: 1,
       end: 0,

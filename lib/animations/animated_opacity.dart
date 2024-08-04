@@ -1,10 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, must_be_immutable
 
 import 'package:extension_animation/type/animated_duration.dart';
 import 'package:flutter/material.dart';
 
 /// 淡入动画效果
-class AnimatedOpacityBit extends StatefulWidget {
+class AnimatedFadeInBit extends StatefulWidget {
   final Widget child;
 
   /// 动画时长
@@ -18,20 +18,25 @@ class AnimatedOpacityBit extends StatefulWidget {
 
   /// 延迟时间
   final Duration? delay;
-  const AnimatedOpacityBit(
+
+  Function(AnimationController controller)? onCreate;
+
+  /// 构造方法
+  AnimatedFadeInBit(
       {super.key,
       required this.child,
       this.duration,
       this.begin = 0,
       this.end = 1,
-      this.delay})
+      this.delay,
+      this.onCreate})
       : super();
 
   @override
-  _AnimatedOpacityBitState createState() => _AnimatedOpacityBitState();
+  _AnimatedFadeInBitState createState() => _AnimatedFadeInBitState();
 }
 
-class _AnimatedOpacityBitState extends State<AnimatedOpacityBit>
+class _AnimatedFadeInBitState extends State<AnimatedFadeInBit>
     with SingleTickerProviderStateMixin {
   /// 动画控制器
   late AnimationController _controller;
@@ -47,6 +52,9 @@ class _AnimatedOpacityBitState extends State<AnimatedOpacityBit>
       vsync: this,
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+
+    /// 控制器创建成功回调
+    widget.onCreate?.call(_controller);
 
     if (widget.delay != null) {
       Future.delayed(widget.delay!, () {
