@@ -17,7 +17,7 @@ class AnimatedFadeOutBit extends StatefulWidget {
   final double end;
 
   /// 延迟时间
-  final Duration? delay;
+  /// final Duration? delay;
 
   Function(AnimationController controller)? onCreate;
 
@@ -28,7 +28,6 @@ class AnimatedFadeOutBit extends StatefulWidget {
       this.duration,
       this.begin = 1,
       this.end = 0,
-      this.delay,
       this.onCreate})
       : super();
 

@@ -40,19 +40,17 @@ class _MyAppState extends State<MyApp> {
                       width: 150,
                       height: 150,
                       color: Colors.red,
-                    ).fadeIn(onCreate: (controller) {
+                    ).fadeIn().fadeOut(onCreate: (controller) {
                       this.controller = controller;
                       debugPrint("初始化成功！！！！");
                     })
-                  : FadeIn(
-                      child: Text(
-                        'Hello, World!',
-                        style: TextStyle(color: Colors.red),
-                      ),
-                    ),
+                  : const Text(
+                      'Hello, World!',
+                      style: TextStyle(color: Colors.red),
+                    ).fadeIn(),
               ElevatedButton(
                 onPressed: () async {
-                  await controller?.reverse().then((_) {
+                  await controller?.forward().then((_) {
                     debugPrint("动画执行成功！！");
                   });
                   controller = null;
