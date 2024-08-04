@@ -1,18 +1,25 @@
 # extension_animation
 
-A new Flutter plugin project.
+这是一个flutter开发的动画插件库，能让您快速解决组件的动画添加。
 
-## Getting Started
+## 入门指南
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+该插件支持Android&IOS
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+目前支持：
+	FadeIn （淡入）
+	FadeOut （淡出）
+快速开始：
+	
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+```dart
+Container(width: 150,
+          height: 150,
+          color: Colors.red,)
+    .fadeIn(
+      ///动画时间
+      duration: const Duration(seconds: 1),
+      ///延迟时间
+      delay: const Duration(seconds: 1))
+```
+
