@@ -9,6 +9,8 @@
 目前支持：
 	FadeIn （淡入）
 	FadeOut （淡出）
+     SlideUp （down to up）
+	SlideDown （up to down）
 快速开始：
 
 #### 	FadeIn
@@ -51,3 +53,35 @@ await controller?.forward().then((_) {
 controller = null;
 ```
 
+
+#### 	SlideUp
+
+```dart
+Container(width: 150,
+          height: 150,
+          color: Colors.red,)
+    .slideUp(
+      ///动画时间
+      duration: const Duration(seconds: 1),
+      ///延迟时间
+      delay: const Duration(seconds: 1),
+	  //动画曲线
+      curve: Curves.easeInOut)
+```
+
+#### 	SlideDown
+
+```dart
+Container(width: 150,
+          height: 150,
+          color: Colors.red,)
+    .slideDown(
+      ///动画时间
+      duration: const Duration(seconds: 1),
+      ///延迟时间
+      delay: const Duration(seconds: 1),
+	  //动画曲线
+      curve: Curves.easeInOut)
+      //可嵌套使用
+    .fadeIn()
+```
