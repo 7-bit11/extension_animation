@@ -1,38 +1,26 @@
 // ignore_for_file: library_private_types_in_public_api, must_be_immutable
 
+import 'package:extension_animation/animations/animated.dart';
 import 'package:extension_animation/type/animated_duration.dart';
 import 'package:flutter/material.dart';
 
 /// 淡入动画效果
-class FadeOutAnimatedBit extends StatefulWidget {
-  final Widget child;
-
-  /// 动画时长
-  final Duration? duration;
-
+class FadeOutAnimatedBit extends AnimatedBit {
   /// 开始时间
   final double begin;
 
   /// 结束时间
   final double end;
 
-  /// 延迟时间
-  /// final Duration? delay;
-  /// 控制器创建成功回调
-  Function(AnimationController controller)? onCreate;
-
-  /// 动画曲线
-  final Curve? curve;
-
   /// 构造方法
   FadeOutAnimatedBit(
       {super.key,
-      required this.child,
-      this.duration,
+      required super.child,
+      super.duration,
       this.begin = 1,
       this.end = 0,
-      this.onCreate,
-      this.curve})
+      super.onCreate,
+      super.curve})
       : super();
 
   @override
