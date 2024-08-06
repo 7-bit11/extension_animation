@@ -1,15 +1,22 @@
 // ignore_for_file: library_private_types_in_public_api, must_be_immutable
 
 import 'package:extension_animation/animations/animated.dart';
+import 'package:extension_animation/type/animated_duration.dart';
 import 'package:flutter/widgets.dart';
 
+/// 上滑动画
 class SlideUpAnimationBit extends AnimatedBit {
+  /// 开始
+  final Offset? begin;
+
+  /// 结束
+  final Offset? end;
   SlideUpAnimationBit({
     super.key,
+    this.begin,
+    this.end,
     required super.child,
     super.duration,
-    super.begin,
-    super.end,
     super.delay,
     super.onCreate,
     super.curve,
@@ -28,12 +35,12 @@ class _AnimationSlideState extends State<SlideUpAnimationBit>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: widget.duration ?? AnimatedDuration.duration,
       vsync: this,
     );
     _animation = Tween<Offset>(
-      begin: const Offset(0, 1), // 控制动画起始位置 (屏幕下方)
-      end: const Offset(0, 0), // 控制动画结束位置 (屏幕中间)
+      begin: widget.begin ?? const Offset(0, 1), // 控制动画起始位置 (屏幕下方)
+      end: widget.end ?? const Offset(0, 0), // 控制动画结束位置 (屏幕中间)
     ).animate(CurvedAnimation(
         parent: _controller, curve: widget.curve ?? Curves.easeInOut));
     _startAnimation();

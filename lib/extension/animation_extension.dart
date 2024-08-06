@@ -1,5 +1,6 @@
 import 'package:extension_animation/animations/fade/animated_fadein.dart';
 import 'package:extension_animation/animations/fade/animated_fadeout.dart';
+import 'package:extension_animation/animations/slide/animated_slide.dart';
 import 'package:flutter/material.dart';
 
 extension WidgetAnimation on Widget {
@@ -18,12 +19,25 @@ extension WidgetAnimation on Widget {
     );
   }
 
-  /// 淡出动画 [FadeInAnimatedBit]
+  /// 淡出动画 [FadeOutAnimatedBit]
   Widget fadeOut(
       {Duration? duration,
       Curve? curve,
       Function(AnimationController controller)? onCreate}) {
     return FadeOutAnimatedBit(
+      duration: duration,
+      onCreate: onCreate,
+      curve: curve,
+      child: this,
+    );
+  }
+
+  /// 下往上动画 [SlideUpAnimationBit]
+  Widget sildeUp(
+      {Duration? duration,
+      Curve? curve,
+      Function(AnimationController controller)? onCreate}) {
+    return SlideUpAnimationBit(
       duration: duration,
       onCreate: onCreate,
       curve: curve,

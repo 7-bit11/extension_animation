@@ -2,17 +2,12 @@
 
 import 'package:flutter/material.dart';
 
+/// 动画基类
 abstract class AnimatedBit extends StatefulWidget {
   final Widget child;
 
   /// 动画时长
   final Duration? duration;
-
-  /// 开始
-  final double begin;
-
-  /// 结束
-  final double end;
 
   /// 延迟时间
   final Duration? delay;
@@ -28,8 +23,6 @@ abstract class AnimatedBit extends StatefulWidget {
       {super.key,
       required this.child,
       this.duration,
-      this.begin = 0,
-      this.end = 1,
       this.delay,
       this.onCreate,
       this.curve})

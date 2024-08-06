@@ -54,6 +54,11 @@ class _MyAppState extends State<MyApp> {
                       'Hello, World!',
                       style: TextStyle(color: Colors.red),
                     ).fadeIn(),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
+              ).sildeUp(),
               ElevatedButton(
                 onPressed: () async {
                   await controller?.forward().then((_) {
