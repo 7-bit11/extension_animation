@@ -1,5 +1,7 @@
 import 'package:extension_animation/extension/animation_extension.dart';
+import 'package:extension_animation_example/page/fade_example.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,65 +20,57 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  bool _isVisible = true;
-
-  AnimationController? controller;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
+    return const MaterialApp(
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  _buildItem(String nameEn, String nameCn, void Function()? onTap) {
+    TextStyle style = const TextStyle(
+        color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold);
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+          padding: const EdgeInsets.all(15),
+          decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: BorderRadius.circular(6)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [Text(nameEn, style: style), Text(nameCn, style: style)],
+          )),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Animation Plugin example app'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _isVisible
-                  ? Container(
-                      width: 150,
-                      height: 150,
-                      color: Colors.red,
-                    )
-                      .fadeIn(
-
-                          ///动画时间
-                          duration: const Duration(seconds: 1),
-                          //延迟时间
-                          delay: const Duration(seconds: 1),
-                          //动画曲线
-                          curve: Curves.easeInOut)
-                      .fadeOut(onCreate: (controller) {
-                      this.controller = controller;
-                      debugPrint("初始化成功！！！！");
-                    })
-                  : const Text(
-                      'Hello, World!',
-                      style: TextStyle(color: Colors.red),
-                    ).fadeIn(),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue,
-              ).sildeUp(),
-              ElevatedButton(
-                onPressed: () async {
-                  await controller?.forward().then((_) {
-                    debugPrint("动画执行成功！！");
-                  });
-                  controller = null;
-
-                  //await Future.delayed(Duration(seconds: 2));
-                  // setState(() {
-                  //   _hide = false;
-                  //   _hide = true;
-                  // });
-                  setState(() {
-                    _isVisible = !_isVisible;
-                  });
-                },
-                child: Text("123"),
-              ),
+              _buildItem("example fadeIn&fadeOut", "淡入淡出", () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const FadeExamplePage()),
+                );
+              }),
               const SizedBox(
                 height: 20,
               ),
