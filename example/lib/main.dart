@@ -1,5 +1,7 @@
 import 'package:extension_animation/extension/animation_extension.dart';
 import 'package:extension_animation_example/page/fade_example.dart';
+import 'package:extension_animation_example/page/slide_example.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -48,7 +50,10 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(6)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text(nameEn, style: style), Text(nameCn, style: style)],
+            children: [
+              Flexible(child: Text(nameEn, style: style)),
+              Text(nameCn, style: style)
+            ],
           )),
     );
   }
@@ -63,7 +68,6 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildItem("example fadeIn&fadeOut", "淡入淡出", () {
                 Navigator.push(
@@ -71,9 +75,13 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (_) => const FadeExamplePage()),
                 );
               }),
-              const SizedBox(
-                height: 20,
-              ),
+              const SizedBox(height: 20),
+              _buildItem("example slideUp&slideDown", "下往上，上往下", () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SlideExamplePage()),
+                );
+              }),
             ],
           ),
         ),

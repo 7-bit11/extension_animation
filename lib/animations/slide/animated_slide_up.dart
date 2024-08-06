@@ -43,6 +43,9 @@ class _AnimationSlideState extends State<SlideUpAnimationBit>
       end: widget.end ?? const Offset(0, 0), // 控制动画结束位置 (屏幕中间)
     ).animate(CurvedAnimation(
         parent: _controller, curve: widget.curve ?? Curves.easeInOut));
+
+    /// 控制器创建成功回调
+    widget.onCreate?.call(_controller);
     _startAnimation();
   }
 
