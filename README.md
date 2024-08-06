@@ -7,14 +7,14 @@
 该插件支持Android&IOS
 
 目前支持：
-##### FadeIn （淡入）[示例锚点](#fadeIn)
-##### FadeOut （淡出）[示例锚点](#fadeOut)
-##### SlideUp （down to up）[示例锚点](#slideUp)
-##### SlideDown （up to down）[示例锚点](#slideDown-anchor)
+##### [FadeIn （淡入](#fadeIn)
+##### [FadeOut （淡出）](#fadeOut)
+##### [SlideUp （down to up）](#slideUp)
+##### [SlideDown （up to down）](#slideDown-anchor)
 快速开始：
 
-#### 	FadeIn {#fadeIn}
-
+#### 	FadeIn 
+{#fadeIn}
 ```dart
 Container(width: 150,
           height: 150,
@@ -28,8 +28,8 @@ Container(width: 150,
       curve: Curves.easeInOut)
 ```
 
-#### 	FadeOut {#fadeOut}
-
+#### 	FadeOut 
+{#fadeOut}
 ```dart
 自己控制FadeOut的时机
 //创建一个接收动画控制器
@@ -54,8 +54,8 @@ controller = null;
 ```
 
 
-#### 	SlideUp {#slideUp}
-
+#### 	SlideUp 
+{#slideUp}
 ```dart
 Container(width: 150,
           height: 150,
@@ -69,8 +69,8 @@ Container(width: 150,
       curve: Curves.easeInOut)
 ```
 
-#### 	SlideDown {#slideDown}
-
+#### 	SlideDown 
+{#slideDown}
 ```dart
 Container(width: 150,
           height: 150,
