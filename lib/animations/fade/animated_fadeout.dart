@@ -4,7 +4,7 @@ import 'package:extension_animation/type/animated_duration.dart';
 import 'package:flutter/material.dart';
 
 /// 淡入动画效果
-class AnimatedFadeOutBit extends StatefulWidget {
+class FadeOutAnimatedBit extends StatefulWidget {
   final Widget child;
 
   /// 动画时长
@@ -25,7 +25,7 @@ class AnimatedFadeOutBit extends StatefulWidget {
   final Curve? curve;
 
   /// 构造方法
-  AnimatedFadeOutBit(
+  FadeOutAnimatedBit(
       {super.key,
       required this.child,
       this.duration,
@@ -36,10 +36,10 @@ class AnimatedFadeOutBit extends StatefulWidget {
       : super();
 
   @override
-  _AnimatedFadeOutBitState createState() => _AnimatedFadeOutBitState();
+  _FadeOutAnimatedBitState createState() => _FadeOutAnimatedBitState();
 }
 
-class _AnimatedFadeOutBitState extends State<AnimatedFadeOutBit>
+class _FadeOutAnimatedBitState extends State<FadeOutAnimatedBit>
     with SingleTickerProviderStateMixin {
   /// 动画控制器
   late AnimationController _controller;

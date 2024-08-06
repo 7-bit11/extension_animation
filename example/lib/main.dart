@@ -1,6 +1,5 @@
 import 'package:extension_animation/extension/animation_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +19,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   bool _isVisible = true;
-  bool _visible = true;
 
-  bool _hide = false;
   AnimationController? controller;
   @override
   Widget build(BuildContext context) {
@@ -78,11 +75,6 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 20,
               ),
-              IconButton(
-                  onPressed: () => setState(() {
-                        _isVisible = !_isVisible;
-                      }),
-                  icon: const Icon(Icons.change_circle))
             ],
           ),
         ),
