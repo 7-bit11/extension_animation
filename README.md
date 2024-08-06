@@ -7,10 +7,10 @@
 该插件支持Android&IOS
 
 目前支持：
-	##### FadeIn （淡入）
-	##### FadeOut （淡出）
-        ##### SlideUp （down to up）
-	##### SlideDown （up to down）
+##### FadeIn （淡入）
+##### FadeOut （淡出）
+##### SlideUp （down to up）
+##### SlideDown （up to down）
 快速开始：
 
 #### 	FadeIn
