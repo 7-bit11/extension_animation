@@ -36,25 +36,22 @@ class _SlideExamplePageState extends State<SlideExamplePage> {
                         //动画曲线
                         curve: Curves.easeInOut)
                     .fadeIn()
-                    .sildeDown(onCreate: (controller) {
+                : Container(
+                    width: 150,
+                    height: 150,
+                    color: Colors.blue,
+                  ).sildeDown(onCreate: (controller) {
                     this.controller = controller;
                     debugPrint("初始化成功！！！！sildeDown");
-                  }).fadeOut(onCreate: (controller) {
-                    controller1 = controller;
-                    debugPrint("初始化成功！！！！sildeDown");
-                  })
-                : const Text(
-                    'Hello, World!',
-                    style: TextStyle(color: Colors.red),
-                  ).fadeIn(),
+                  }).fadeIn(),
             const SizedBox(height: 50),
             ElevatedButton(
               onPressed: () async {
-                controller1?.forward();
-                await controller?.forward().then((_) {
-                  debugPrint("动画执行成功！！");
-                });
-                controller = null;
+                await controller1?.forward();
+                // await controller?.forward().then((_) {
+                //   debugPrint("动画执行成功！！");
+                // });
+                // controller = null;
                 controller1 = null;
                 setState(() {
                   _isVisible = !_isVisible;
