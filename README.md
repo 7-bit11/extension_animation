@@ -26,7 +26,7 @@ Container(width: 150,
       duration: const Duration(seconds: 1),
       ///延迟时间
       delay: const Duration(seconds: 1),
-	  //动画曲线
+	    ///动画曲线
       curve: Curves.easeInOut)
 ```
 
@@ -67,7 +67,7 @@ Container(width: 150,
       duration: const Duration(seconds: 1),
       ///延迟时间
       delay: const Duration(seconds: 1),
-	  //动画曲线
+	    ///动画曲线
       curve: Curves.easeInOut)
 ```
 
@@ -82,9 +82,9 @@ Container(width: 150,
       duration: const Duration(seconds: 1),
       ///延迟时间
       delay: const Duration(seconds: 1),
-	  //动画曲线
+	    ///动画曲线
       curve: Curves.easeInOut)
-      //可嵌套使用
+      ///可嵌套使用
     .fadeIn()
 ```
 #### 	SlideUpOut 
