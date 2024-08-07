@@ -1,6 +1,7 @@
 import 'package:extension_animation/animations/fade/animated_fadein.dart';
 import 'package:extension_animation/animations/fade/animated_fadeout.dart';
 import 'package:extension_animation/animations/slide/animated_slide_down.dart';
+import 'package:extension_animation/animations/slide/animated_slide_down_out.dart';
 import 'package:extension_animation/animations/slide/animated_slide_up.dart';
 import 'package:extension_animation/animations/slide/animated_slide_up_out.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +68,21 @@ extension WidgetAnimation on Widget {
       Function(AnimationController controller)? onCreate}) {
     return GestureDetector(
       child: SlideUpOutAnimationBit(
+        duration: duration,
+        onCreate: onCreate,
+        curve: curve,
+        child: this,
+      ),
+    );
+  }
+
+  /// 上往下动画退出 [SlideDownAnimationBit]
+  Widget sildeDownOut(
+      {Duration? duration,
+      Curve? curve,
+      Function(AnimationController controller)? onCreate}) {
+    return GestureDetector(
+      child: SlideDownOutAnimationBit(
         duration: duration,
         onCreate: onCreate,
         curve: curve,
