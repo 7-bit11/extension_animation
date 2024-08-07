@@ -1,6 +1,7 @@
 import 'package:extension_animation/extension/animation_extension.dart';
 import 'package:extension_animation_example/page/fade_example.dart';
 import 'package:extension_animation_example/page/slide_example.dart';
+import 'package:extension_animation_example/page/slide_out_example.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -69,17 +70,7 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: ListView(
-            children:
-                //     List.generate(2, (index) {
-                //   return
-                //   _buildItem("example fadeIn&fadeOut", "淡入淡出", () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(builder: (_) => const FadeExamplePage()),
-                //     );
-                //   }).sildeUp();
-                // })
-                [
+            children: [
               _buildItem("example fadeIn&fadeOut", "淡入淡出", () {
                 Navigator.push(
                   context,
@@ -93,41 +84,14 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(builder: (_) => const SlideExamplePage()),
                 );
               }),
-              _isVisible
-                  ? Container(
-                      width: 150,
-                      height: 150,
-                      color: Colors.red,
-                    )
-                      .sildeUp(
-
-                          ///动画时间
-                          duration: const Duration(seconds: 1),
-                          //延迟时间
-                          //delay: const Duration(seconds: 1),
-                          //动画曲线
-                          curve: Curves.easeInOut)
-                      .fadeIn()
-                      .sildeUpOut(
-                          onCreate: (controller) =>
-                              this.controller = controller)
-                  : const SizedBox(
-                      width: 150,
-                      height: 150,
-                    ).fadeIn(),
-              const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: () async {
-                  await controller?.forward().then((_) {
-                    debugPrint("动画执行成功！！");
-                  });
-                  controller = null;
-                  setState(() {
-                    _isVisible = !_isVisible;
-                  });
-                },
-                child: Text(_isVisible ? "隐藏" : "显示"),
-              ),
+              const SizedBox(height: 20),
+              _buildItem("slideUpOut&slideDownOut", "", () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (_) => const SlideOutExamplePage()),
+                );
+              }),
             ],
           ),
         ),

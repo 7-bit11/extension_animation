@@ -39,7 +39,7 @@ class _AnimationSlideState extends State<SlideDownAnimationBit>
       vsync: this,
     );
     _animation = Tween<Offset>(
-      begin: widget.begin ?? const Offset(0, -1), // 控制动画起始位置 (屏幕下方)
+      begin: widget.begin ?? const Offset(0, -2), // 控制动画起始位置 (屏幕下方)
       end: widget.end ?? const Offset(0, 0), // 控制动画结束位置 (屏幕中间)
     ).animate(CurvedAnimation(
         parent: _controller, curve: widget.curve ?? Curves.easeInOut));
