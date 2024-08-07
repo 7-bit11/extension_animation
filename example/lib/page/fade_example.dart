@@ -1,6 +1,5 @@
 import 'package:extension_animation/extension/animation_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class FadeExamplePage extends StatefulWidget {
   const FadeExamplePage({super.key});
